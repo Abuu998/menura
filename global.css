@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@layer theme {
+    :root {
+        --color-background: var(--color-background);
+        --color-foreground: var(--color-foreground);
+
+        @variant light {
+            /* Base */
+            --color-foreground: oklch(0.22 0.03 250);
+            --color-background: oklch(0.95 0.03 185);
+
+            /* Surfaces */
+            --color-card: var(--color-background);
+            --color-card-foreground: var(--color-foreground);
+
+            --color-popover: var(--color-background);
+            --color-popover-foreground: var(--color-foreground);
+
+            /* Core brand colors (from icon) */
+            --color-primary: oklch(0.62 0.12 195);
+            --color-primary-foreground: oklch(0.98 0.01 200);
+
+            --color-secondary: oklch(0.92 0.02 200);
+            --color-secondary-foreground: var(--color-foreground);
+
+            --color-accent: oklch(0.72 0.17 55);
+            --color-accent-foreground: oklch(0.98 0.01 90);
+
+            --color-muted: oklch(0.93 0.015 200);
+            --color-muted-foreground: oklch(0.55 0.02 250);
+
+            --color-destructive: oklch(0.63 0.24 25);
+            --color-destructive-foreground: oklch(0.98 0 0);
+
+            /* Borders / Inputs / Ring */
+            --color-border: var(--color-muted);
+            --color-input: var(--color-muted);
+            --color-ring: var(--color-primary);
+
+            /* Radius */
+            --radius: 0.9rem;
+        }
+
+        @variant dark {
+            --color-background: oklch(0.18 0.03 250);
+            --color-foreground: oklch(0.95 0.01 200);
+
+            --color-card: var(--color-foreground);
+            --color-card-foreground: var(--color-background);
+
+            --color-popover: var(--color-foreground);
+            --color-popover-foreground: var(--color-background);
+
+            --color-primary: oklch(0.7 0.13 195);
+            --color-primary-foreground: oklch(0.16 0.02 250);
+
+            --color-secondary: oklch(0.28 0.03 250);
+            --color-secondary-foreground: var(--color-background);
+
+            --color-accent: oklch(0.78 0.16 55);
+            --color-accent-foreground: oklch(0.15 0.02 40);
+
+            --color-muted: oklch(0.28 0.03 250);
+            --color-muted-foreground: oklch(0.75 0.02 230);
+
+            --color-destructive: oklch(0.7 0.22 25);
+            --color-destructive-foreground: oklch(0.98 0 0);
+
+            --color-border: var(--color-muted);
+            --color-input: var(--color-muted);
+            --color-ring: var(--color-primary);
+
+            --radius: 0.9rem;
+        }
+    }
+}
