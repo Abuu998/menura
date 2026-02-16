@@ -6,6 +6,7 @@ import { Stack } from "expo-router";
 import { expo as expoDb, db } from "@/lib/db/index";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import migrations from "@/drizzle/migrations";
+import "@/lib/i18n";
 import "../global.css";
 
 export default function RootLayout() {
