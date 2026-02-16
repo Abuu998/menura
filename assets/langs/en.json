@@ -1,0 +1,7 @@
+{
+  "welcome": "Welcome to React and react-i18next",
+  "desciption": {
+    "part1": "This is the description you want",
+    "part2": "This is another description"
+  }
+}
