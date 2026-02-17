@@ -1,7 +1,18 @@
 {
-  "welcome": "Welcome to React and react-i18next",
-  "desciption": {
-    "part1": "This is the description you want",
-    "part2": "This is another description"
-  }
+  "dates": {
+    "today": "Today",
+    "days": {
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    }
+  },
+  "history": {
+    "meals": "Past Meals"
+  },
+  "settings": {}
 }

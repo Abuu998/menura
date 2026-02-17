@@ -8,6 +8,27 @@
       "when": 1771189598105,
       "tag": "0000_ambitious_oracle",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1771335127111,
+      "tag": "0001_gifted_mariko_yashida",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1771335471664,
+      "tag": "0002_groovy_magus",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1771337154561,
+      "tag": "0003_bouncy_wrecking_crew",
+      "breakpoints": true
     }
   ]
 }

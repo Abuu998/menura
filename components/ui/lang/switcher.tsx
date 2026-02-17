@@ -26,9 +26,9 @@ export function SwitchLanguage() {
               onPress={() => i18n.changeLanguage(lang)}
               className="ring-1 ring-muted py-1 px-2"
             >
-              <Text className="text-accent text-lg">
+              <Text className="text-primary text-lg">
                 <Ionicons name="language-outline" size={15} />{" "}
-                <Text className="ml-1">{lang.toUpperCase()}</Text>
+                <Text className="ml-1">{langs[lang].nativeName}</Text>
               </Text>
             </Button>
           )

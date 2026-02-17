@@ -11,7 +11,6 @@ export default function TabsLayout() {
 
   return (
     <Tabs
-      initialRouteName="home"
       screenOptions={{
         headerShown: false,
         tabBarStyle,
@@ -31,7 +30,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           title: "Home",
           tabBarIcon: ({ focused, size, color }) => (
