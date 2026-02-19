@@ -1,5 +1,5 @@
 {
-  "dates": {
+  "home": {
     "today": "Today",
     "days": {
       "sunday": "Sunday",
@@ -9,10 +9,18 @@
       "thursday": "Thursday",
       "friday": "Friday",
       "saturday": "Saturday"
+    },
+    "today-meal": "Today's Meal",
+    "no-meal-selected": "No Meal selected for today",
+    "tabs": {
+      "manual": "Manually",
+      "random": "Randomize"
     }
   },
   "history": {
     "meals": "Past Meals"
   },
-  "settings": {}
+  "settings": {
+    "title": "Settings"
+  }
 }
