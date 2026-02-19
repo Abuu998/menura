@@ -1,5 +1,5 @@
 {
-  "dates": {
+  "home": {
     "today": "Uyumusi",
     "days": {
       "sunday": "Kuwindwi",
@@ -9,7 +9,8 @@
       "thursday": "Kuwakane",
       "friday": "Kuwagatanu",
       "saturday": "Kuwagatandatu"
-    }
+    },
+    "today-meal": "Ivyokurya Wateguye Uyumusi"
   },
   "history": {
     "meals": "Ivyokurya vyahaheze"

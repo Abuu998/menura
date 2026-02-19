@@ -5,6 +5,7 @@ import m0000 from './0000_ambitious_oracle.sql';
 import m0001 from './0001_gifted_mariko_yashida.sql';
 import m0002 from './0002_groovy_magus.sql';
 import m0003 from './0003_bouncy_wrecking_crew.sql';
+import m0004 from './0004_gigantic_senator_kelly.sql';
 
   export default {
     journal,
@@ -12,7 +13,8 @@ import m0003 from './0003_bouncy_wrecking_crew.sql';
       m0000,
 m0001,
 m0002,
-m0003
+m0003,
+m0004
     }
   }
   

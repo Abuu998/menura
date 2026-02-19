@@ -1,3 +1,4 @@
+import { constructNow, formatISO } from "date-fns";
 import { relations, sql } from "drizzle-orm";
 import { sqliteTable as table, text, integer, primaryKey } from "drizzle-orm/sqlite-core";
 import uuid from "react-native-uuid";
@@ -12,9 +13,9 @@ export const dishes = table("dishes", {
 
 export const meals = table("meals", {
   id: text("id").primaryKey().$default(uuid.v4),
-  date: integer("created", { mode: "timestamp" })
+  date: text("date")
     .notNull()
-    .default(sql`(CURRENT_TIMESTAMP)`),
+    .$default(() => formatISO(constructNow(new Date()), { format: "extended" })),
 });
 
 export const dishesToMeals = table(
@@ -49,5 +50,4 @@ export const dishesToMealsRelations = relations(dishesToMeals, ({ one }) => ({
   }),
 }));
 
-export type Meal = typeof meals.$inferSelect;
 export type Dish = typeof dishes.$inferSelect;
