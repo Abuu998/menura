@@ -12,10 +12,10 @@ type MealCardProps = {
   className?: React.ComponentProps<typeof View>["className"];
 };
 
-export function MealCard({ meal, withDate = false }: MealCardProps) {
+export function MealCard({ className, meal, withDate = false }: MealCardProps) {
   const { t } = useTranslation();
   return (
-    <View className={cn("gap-2")}>
+    <View className={cn("gap-2", className)}>
       {withDate && (
         <MyText className="text-xl font-semibold mb-3">
           {t(`home.days.${format(meal.date, "EEEE").toLowerCase()}`)}

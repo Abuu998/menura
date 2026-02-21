@@ -18,17 +18,17 @@
     }
   },
   "dishes": {
-    "main": "Ivyibanze",
-    "secondary": "Ibisuhiriza",
-    "tertiary": "Imboga",
-    "sauce": "Ivyisosi"
+    "main": "🥗 Ivyibanze",
+    "secondary": "🫘 Ibisahiriza",
+    "tertiary": "🥬 Imboga",
+    "sauce": "🥩🍗 Ivyisosi"
   },
   "cta": {
     "create-meal": "Cagura ibifungurwa",
     "randomize-meal": "Hitamwo ibindi"
   },
   "history": {
-    "title": "Ivyokurya vyarenganye"
+    "title": "🍝 Ivyokurya vyarenganye"
   },
   "settings": {
     "title": "Settings"
