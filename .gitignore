@@ -43,3 +43,6 @@ app-example
 /ios
 /android
 .vscode
+
+# Test Coverages
+coverage/**/*

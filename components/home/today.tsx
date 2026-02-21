@@ -10,10 +10,13 @@ export function Today() {
   const { now } = useClock();
   return (
     <View className="mt-4">
-      <MyText className="font-semibold text-2xl text-muted-foreground  border-b border-b-border self-start">
-        {t("home.today")}
+      <MyText
+        variant="title"
+        className="text-muted-foreground border-b border-b-border self-start"
+      >
+        {t("home.title")}
       </MyText>
-      <MyText className="text-lg mt-3">
+      <MyText className="mt-3">
         <Text>{t(`home.days.${format(now, "EEEE").toLowerCase()}`)}, </Text>
         <Text>{format(now, "dd/MM/yyyy HH:mm:ss")}</Text>
       </MyText>

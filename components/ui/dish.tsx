@@ -11,7 +11,7 @@ type DishCardProps = {
 export function DishCard({ dish, className }: DishCardProps) {
   return (
     <View className={cn("", className)}>
-      <MyText className="text-lg">{dish.name}</MyText>
+      <MyText>{dish.name}</MyText>
     </View>
   );
 }

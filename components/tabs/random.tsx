@@ -6,6 +6,7 @@ import { Empty } from "../ui/empty";
 import { GroupedDishes } from "../ui/grouped-dishes";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 type RandomTabProps = {
   randomizeMeal: () => void;
@@ -19,6 +20,8 @@ export function CreateRandomMealTab({
   selectedDishes,
   randomizeMeal,
 }: RandomTabProps) {
+  const { t } = useTranslation();
+
   useEffect(() => randomizeMeal(), []);
 
   const render =
@@ -38,10 +41,10 @@ export function CreateRandomMealTab({
       {render}
       <View className="mt-8">
         <Button className="py-4 px-5 rounded-lg bg-accent/80" onPress={randomizeMeal}>
-          <MyText className="text-lg text-center font-semibold">Randomize Meal</MyText>
+          <MyText className="text-center font-semibold">{t("cta.randomize-meal")}</MyText>
         </Button>
         <Button className="py-4 px-5 rounded-lg mt-4 bg-primary/80" onPress={createMeal}>
-          <MyText className="text-lg text-center font-semibold">Create Meal</MyText>
+          <MyText className="text-center font-semibold">{t("cta.create-meal")}</MyText>
         </Button>
       </View>
     </View>

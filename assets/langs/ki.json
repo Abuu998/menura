@@ -1,6 +1,6 @@
 {
   "home": {
-    "today": "Uyumusi",
+    "title": "Uyumusi",
     "days": {
       "sunday": "Kuwindwi",
       "monday": "Kuwambere",
@@ -10,10 +10,27 @@
       "friday": "Kuwagatanu",
       "saturday": "Kuwagatandatu"
     },
-    "today-meal": "Ivyokurya Wateguye Uyumusi"
+    "today-meal": "Ibifungurwa wahisemwo uyumusi",
+    "no-meal-selected": "Ntabifungurwa urahitamwo uyumusi",
+    "tabs": {
+      "manual": "Kwihitiramwo",
+      "random": "Application Ihitemwo"
+    }
+  },
+  "dishes": {
+    "main": "Ivyibanze",
+    "secondary": "Ibisuhiriza",
+    "tertiary": "Imboga",
+    "sauce": "Ivyisosi"
+  },
+  "cta": {
+    "create-meal": "Cagura ibifungurwa",
+    "randomize-meal": "Hitamwo ibindi"
   },
   "history": {
-    "meals": "Ivyokurya vyahaheze"
+    "title": "Ivyokurya vyarenganye"
   },
-  "settings": {}
+  "settings": {
+    "title": "Settings"
+  }
 }

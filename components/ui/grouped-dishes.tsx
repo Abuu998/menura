@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { DishWithCheck } from "./dish-checkbox";
 import { RadioButton } from "react-native-paper";
 import { MealSelection } from "../tabs";
+import { useTranslation } from "react-i18next";
 
 type GroupedDishesProps = {
   dishes: Dish[];
@@ -24,6 +25,8 @@ export function GroupedDishes({
   selectedDishes,
   withCheckbox = false,
 }: GroupedDishesProps) {
+  const { t } = useTranslation();
+
   const render = group ? (
     <>
       {dishes
@@ -48,8 +51,11 @@ export function GroupedDishes({
         return (
           dishes.filter((dish) => dish.type === type).length > 0 && (
             <View key={type} className="space-y-2 w-1/2 mb-2">
-              <MyText className="text-2xl font-semibold text-muted-foreground border-b border-b-border">
-                {type}
+              <MyText
+                variant="title"
+                className="text-muted-foreground border-b border-b-border"
+              >
+                {t(`dishes.${type}`)}
               </MyText>
               {dishes
                 .filter((dish) => dish.type === type)
