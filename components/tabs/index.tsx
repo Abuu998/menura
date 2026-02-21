@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { CreateManualMealTab } from "./manual";
 import { CreateRandomMealTab } from "./random";
 import { useDishes } from "@/hooks/dishes";
-import { Dish } from "@/lib/db/schema";
+import type { Dish } from "@/lib/db/schema";
 import { createMealSchema } from "@/lib/validation/create-meal";
 import { createNewMeal } from "@/hooks/meals";
 
@@ -122,8 +122,8 @@ function TabSelector({ className, activeTab, selectTab }: TabSelectorProps) {
           )}
         >
           <MyText
-            className={cn("font-bold", {
-              "text-primary": activeTab === tab,
+            className={cn("text-sm", {
+              "text-primary font-bold": activeTab === tab,
               "text-muted-foreground/70": activeTab !== tab,
             })}
           >

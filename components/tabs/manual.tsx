@@ -6,6 +6,7 @@ import { Empty } from "../ui/empty";
 import { GroupedDishes } from "../ui/grouped-dishes";
 import { Button } from "../ui/button";
 import { MealSelection } from ".";
+import { useTranslation } from "react-i18next";
 
 export type TabProps = {
   className?: string;
@@ -22,6 +23,8 @@ export function CreateManualMealTab({
   selectDishes,
   selectedDishes,
 }: TabProps) {
+  const { t } = useTranslation();
+
   const render =
     dishes.length < 1 ? (
       <Empty message="No dishes available" />
@@ -38,7 +41,7 @@ export function CreateManualMealTab({
     <View className={cn("", className)}>
       {render}
       <Button className="py-4 px-5 rounded-lg mt-8 bg-primary/80" onPress={createMeal}>
-        <MyText className="text-lg text-center font-semibold">Create Meal</MyText>
+        <MyText className="text-center font-semibold">{t("cta.create-meal")}</MyText>
       </Button>
     </View>
   );

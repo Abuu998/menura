@@ -1,6 +1,6 @@
 {
   "home": {
-    "today": "Today",
+    "title": "Today",
     "days": {
       "sunday": "Sunday",
       "monday": "Monday",
@@ -17,8 +17,18 @@
       "random": "Randomize"
     }
   },
+  "dishes": {
+    "main": "Main",
+    "secondary": "Helpers",
+    "tertiary": "Vegetables",
+    "sauce": "Sauces"
+  },
+  "cta": {
+    "create-meal": "Create Meal",
+    "randomize-meal": "Randomize Meal"
+  },
   "history": {
-    "meals": "Past Meals"
+    "title": "Past Meals"
   },
   "settings": {
     "title": "Settings"
