@@ -83,7 +83,7 @@ export function CreateMealTabs() {
   const Tab = activeTab === "manual" ? CreateManualMealTab : CreateRandomMealTab;
 
   return (
-    <View className="mt-6">
+    <View className="mt-8">
       <TabSelector activeTab={activeTab} selectTab={handleTabChange} />
       <Tab
         dishes={dishes}

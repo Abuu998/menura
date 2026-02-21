@@ -18,17 +18,17 @@
     }
   },
   "dishes": {
-    "main": "Main",
-    "secondary": "Helpers",
-    "tertiary": "Vegetables",
-    "sauce": "Sauces"
+    "main": "🥗 Main",
+    "secondary": "🫘 Helpers",
+    "tertiary": "🥬 Vegetables",
+    "sauce": "🥩🍗 Sauces"
   },
   "cta": {
     "create-meal": "Create Meal",
     "randomize-meal": "Randomize Meal"
   },
   "history": {
-    "title": "Past Meals"
+    "title": "🍝 Past Meals"
   },
   "settings": {
     "title": "Settings"
