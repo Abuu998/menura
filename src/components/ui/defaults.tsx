@@ -2,9 +2,7 @@ import { cn } from "@/lib/utils";
 import { View, Text } from "react-native";
 import { cva, VariantProps } from "class-variance-authority";
 
-type MyViewProps = {} & React.ComponentProps<typeof View>;
-
-export function MyView({ className, ...props }: MyViewProps) {
+export function MyView({ className, ...props }: React.ComponentProps<typeof View>) {
   return <View className={cn("bg-background", className)} {...props} />;
 }
 

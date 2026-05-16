@@ -11,7 +11,7 @@ type EmptyProps = {
 export function Empty({ message, className }: EmptyProps) {
   return (
     <View className={cn("", className)}>
-      <Text className="text-center text-accent/50 mb-2">
+      <Text className="text-center mb-2">
         <Ionicons name="file-tray-full-outline" size={50} />
       </Text>
       <MyText className="text-muted-foreground text-center text-xl">{message}</MyText>

@@ -40,7 +40,10 @@ export function CreateRandomMealTab({
     <View className={cn("", className)}>
       {render}
       <View className="mt-8">
-        <Button className="py-4 px-5 rounded-lg bg-accent/80" onPress={randomizeMeal}>
+        <Button
+          className="py-4 px-5 rounded-lg bg-accent/80 ring ring-primary"
+          onPress={randomizeMeal}
+        >
           <MyText className="text-center font-semibold">{t("cta.randomize-meal")}</MyText>
         </Button>
         <Button className="py-4 px-5 rounded-lg mt-4 bg-primary/80" onPress={createMeal}>
