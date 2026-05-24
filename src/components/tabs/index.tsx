@@ -1,16 +1,16 @@
-import { type Tab, tabs } from "@/types/utils";
-import { useCallback, useState } from "react";
-import { ToastAndroid, View } from "react-native";
-import { Button } from "../ui/button";
-import { cn, getRandomDishFromDishesArray } from "@/lib/utils";
-import { MyText } from "../ui/defaults";
-import { useTranslation } from "react-i18next";
-import { CreateManualMealTab } from "./manual";
-import { CreateRandomMealTab } from "./random";
+import { createMeal } from "#/src/repos";
 import { useDishes } from "@/hooks/dishes";
 import type { Dish } from "@/lib/db/schema";
+import { cn, getRandomDishFromDishesArray, toastAndVibrate } from "@/lib/utils";
 import { createMealSchema } from "@/lib/validation/create-meal";
-import { createNewMeal } from "@/hooks/meals";
+import { type Tab, tabs } from "@/types/utils";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { View } from "react-native";
+import { Button } from "../ui/button";
+import { MyText } from "../ui/defaults";
+import { CreateManualMealTab } from "./manual";
+import { CreateRandomMealTab } from "./random";
 
 export type MealSelection = {
   main: string;
@@ -28,8 +28,10 @@ const initialState = {
 
 export function CreateMealTabs() {
   const [activeTab, setActiveTab] = useState<Tab>("manual");
-  const [selectedDishes, setSelectedDishes] = useState<MealSelection>(initialState);
+  const [selectedDishes, setSelectedDishes] =
+    useState<MealSelection>(initialState);
   const dishes = useDishes();
+  const { t } = useTranslation();
 
   const selectDishesForMeal = (type: Dish["type"], dishId: string) => {
     setSelectedDishes((prev) => ({
@@ -38,25 +40,14 @@ export function CreateMealTabs() {
     }));
   };
 
-  const createMeal = async () => {
-    const parsed = createMealSchema.safeParse(selectedDishes);
+  const parsed = createMealSchema.safeParse(selectedDishes);
 
-    if (!parsed.success || !parsed.data) {
-      ToastAndroid.show("Please select valid Dishes", ToastAndroid.SHORT);
-      return;
-    }
+  if (!parsed.success || !parsed.data) {
+    toastAndVibrate({ type: "error", message: "Please select valid Dishes" });
+    return;
+  }
 
-    try {
-      await createNewMeal(parsed.data);
-      setSelectedDishes(initialState);
-      ToastAndroid.show("🎉 Meal created successfully", ToastAndroid.SHORT);
-    } catch (error) {
-      console.error(error);
-      ToastAndroid.show("Oops! Failed to create meal", ToastAndroid.SHORT);
-    }
-  };
-
-  const randomizeMeal = useCallback(() => {
+  const randomizeMeal = () => {
     const mains = dishes.filter((dish) => dish.type === "main");
     const secondaries = dishes.filter((dish) => dish.type === "secondary");
     const tertiaries = dishes.filter((dish) => dish.type === "tertiary");
@@ -73,24 +64,27 @@ export function CreateMealTabs() {
       tertiary: randomTertiary,
       sauce: randomsauce,
     });
-  }, [dishes]);
+  };
 
   const handleTabChange = (tab: Tab) => {
     setSelectedDishes(initialState);
     setActiveTab(tab);
   };
 
-  const Tab = activeTab === "manual" ? CreateManualMealTab : CreateRandomMealTab;
+  const Tab =
+    activeTab === "manual" ? CreateManualMealTab : CreateRandomMealTab;
 
   return (
-    <View className="mt-8">
+    <View className="mt-12">
       <TabSelector activeTab={activeTab} selectTab={handleTabChange} />
       <Tab
         dishes={dishes}
-        className="bg-secondary/40 border border-primary/60 border-t-0 p-4 rounded-b-xl"
+        className="bg-card/80 border border-accent/60 border-t-0 p-5 rounded-b-xl"
         selectDishes={selectDishesForMeal}
         selectedDishes={selectedDishes}
-        createMeal={createMeal}
+        createMeal={() =>
+          createMeal(parsed.data, t, () => setSelectedDishes(initialState))
+        }
         randomizeMeal={randomizeMeal}
       />
     </View>
@@ -116,14 +110,15 @@ function TabSelector({ className, activeTab, selectTab }: TabSelectorProps) {
             "flex-1 items-center py-3 px-5 gap-1 rounded-none rounded-t-xl",
             className,
             {
-              "bg-secondary/40 border border-primary/60 border-b-0": activeTab === tab,
-              "bg-muted/20 border-b border-b-primary/60": activeTab !== tab,
+              "bg-card border border-accent/60 border-b-0": activeTab === tab,
+              "bg-background border-b border-b-accent/60": activeTab !== tab,
             },
           )}
         >
           <MyText
-            className={cn("text-sm", {
-              "text-primary font-bold": activeTab === tab,
+            variant={activeTab === tab ? "title" : "default"}
+            className={cn("text-base", {
+              "text-foreground font-bold": activeTab === tab,
               "text-muted-foreground/70": activeTab !== tab,
             })}
           >

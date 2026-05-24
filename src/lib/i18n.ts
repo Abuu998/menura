@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "../assets/langs/en.json";
 import ki from "../assets/langs/ki.json";
+import { useMyStore } from "../store";
 
 export const defaultNS = "ns1";
 export const resources = {
@@ -10,7 +11,7 @@ export const resources = {
 } as const;
 
 i18n.use(initReactI18next).init({
-  lng: "ki",
+  lng: useMyStore.getState().language.code,
   ns: ["ns1"],
   resources,
   defaultNS,

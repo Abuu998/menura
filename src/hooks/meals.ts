@@ -1,10 +1,10 @@
 import { db } from "@/lib/db";
-import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import * as schema from "@/lib/db/schema";
-import { desc, eq } from "drizzle-orm";
-import { startOfToday, format } from "date-fns";
 import { Meal } from "@/types/utils";
-import { CreateMealInput } from "@/lib/validation/create-meal";
+import { format, startOfToday } from "date-fns";
+import { desc, eq } from "drizzle-orm";
+import { useLiveQuery } from "drizzle-orm/expo-sqlite";
+import { CreateMealInput } from "../lib/validation/create-meal";
 
 export function useTodaysMeal(): Meal | null {
   const { data } = useLiveQuery(
@@ -84,10 +84,12 @@ export async function createNewMeal(d: CreateMealInput) {
       })
       .returning();
 
-    const values = (Object.keys(d) as (keyof CreateMealInput)[]).map((key) => ({
-      mealId: meal.id,
-      dishId: d[key],
-    }));
+    const values = (Object.keys(d) as (keyof CreateMealInput)[]).map((key) => {
+      return {
+        mealId: meal.id,
+        dishId: d[key],
+      };
+    });
 
     await tx.insert(schema.dishesToMeals).values(values);
   });

@@ -1,24 +1,19 @@
-import { View } from "react-native";
-import { MyText } from "../ui/defaults";
+import { useClock } from "@/hooks/timer";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
-import { useClock } from "@/hooks/timer";
-import { Text } from "react-native";
+import { View } from "react-native";
+import { MyText } from "../ui/defaults";
 
 export function Today() {
   const { t } = useTranslation();
   const { now } = useClock();
   return (
-    <View className="mt-4">
-      <MyText
-        variant="title"
-        className="text-muted-foreground border-b border-b-border self-start"
-      >
-        {t("home.title")}
+    <View className="mt-5 flex-row items-center justify-between">
+      <MyText className="text-xl text-muted-foreground uppercase tracking-widest">
+        {t(`home.days.${format(now, "EEEE").toLowerCase()}`)}
       </MyText>
-      <MyText className="mt-3">
-        <Text>{t(`home.days.${format(now, "EEEE").toLowerCase()}`)}, </Text>
-        <Text>{format(now, "dd/MM/yyyy HH:mm:ss")}</Text>
+      <MyText className="text-muted-foreground">
+        {format(now, "dd/MM/yyyy HH:mm")}
       </MyText>
     </View>
   );

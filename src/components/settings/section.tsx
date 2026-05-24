@@ -1,7 +1,7 @@
-import { View } from "react-native";
-import { MyText } from "../ui/defaults";
 import { Ionicons as RawIconicons } from "@expo/vector-icons";
+import { View } from "react-native";
 import { withUniwind } from "uniwind";
+import { MyText } from "../ui/defaults";
 
 const Ionicons = withUniwind(RawIconicons);
 
@@ -26,7 +26,7 @@ export function SettingsSection({
             <Ionicons
               name={icon as any}
               size={18}
-              colorClassName="text-primary"
+              colorClassName="accent-accent"
             />
           )}
           <MyText className="text-foreground font-semibold text-lg">

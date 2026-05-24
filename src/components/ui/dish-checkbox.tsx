@@ -1,26 +1,25 @@
+import { cn } from "#/src/lib/utils";
 import { Dish } from "@/lib/db/schema";
-import { cn } from "@/lib/utils";
-import { MyText } from "./defaults";
-import { withUniwind } from "uniwind";
-import { Button } from "./button";
 import { RadioButton } from "react-native-paper";
+import { withUniwind } from "uniwind";
 
-type DishWithRadioProps = {
+type DishWithCheckProps = {
   dish: Dish;
   className?: string;
 };
 
-const Radio = withUniwind(RadioButton);
+const Radio = withUniwind(RadioButton.Item);
 
-export function DishWithCheck({ className, dish }: DishWithRadioProps) {
+export function DishWithCheck({ className, dish }: DishWithCheckProps) {
   return (
-    <Button className={cn("flex-row items-center gap-2", className)}>
-      <Radio
-        value={dish.id}
-        colorClassName="accent-primary"
-        uncheckedColorClassName="accent-primary/40"
-      />
-      <MyText className="text-lg">{dish.name}</MyText>
-    </Button>
+    <Radio
+      value={dish.id}
+      label={dish.name}
+      colorClassName="accent-accent"
+      uncheckedColorClassName="accent-muted-foreground"
+      labelClassName="text-base text-foreground font-raleway text-start ml-2 truncate"
+      position="leading"
+      className={cn("self-start", className)}
+    />
   );
 }

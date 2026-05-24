@@ -41,5 +41,8 @@
       }
     }
   },
-  "editor.guides.bracketPairs": true
+  "editor.guides.bracketPairs": true,
+  "explorer.expandSingleFolderWorkspaces": true,
+  "explorer.fileNesting.enabled": false,
+  "explorer.fileNesting.expand": true
 }

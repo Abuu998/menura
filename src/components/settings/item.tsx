@@ -1,8 +1,8 @@
-import { View, Pressable, Switch } from "react-native";
-import { MyText } from "../ui/defaults";
-import { Ionicons as RawIconicons } from "@expo/vector-icons";
-import { withUniwind } from "uniwind";
 import { cn } from "@/lib/utils";
+import { Ionicons as RawIconicons } from "@expo/vector-icons";
+import { Pressable, Switch, View } from "react-native";
+import { withUniwind } from "uniwind";
+import { MyText } from "../ui/defaults";
 
 const Ionicons = withUniwind(RawIconicons);
 
@@ -25,7 +25,8 @@ export function SettingItem({
   onValueChange,
   className,
 }: SettingItemProps) {
-  const hasToggle = typeof value === "boolean" && typeof onValueChange === "function";
+  const hasToggle =
+    typeof value === "boolean" && typeof onValueChange === "function";
 
   return (
     <Pressable onPress={hasToggle ? undefined : onPress} disabled={hasToggle}>
@@ -40,18 +41,24 @@ export function SettingItem({
             <Ionicons
               name={icon as any}
               size={22}
-              colorClassName="text-foreground"
+              colorClassName="accent-foreground"
               className="mr-4"
             />
           )}
           <View className="flex-1">
-            <MyText className="text-foreground font-semibold text-base">{title}</MyText>
+            <MyText className="text-foreground font-semibold text-base">
+              {title}
+            </MyText>
             {description && (
-              <MyText className="text-muted-foreground text-xs mt-1.5">{description}</MyText>
+              <MyText className="text-muted-foreground text-xs mt-1.5">
+                {description}
+              </MyText>
             )}
           </View>
         </View>
-        {hasToggle && typeof value === "boolean" && typeof onValueChange === "function" ? (
+        {hasToggle &&
+        typeof value === "boolean" &&
+        typeof onValueChange === "function" ? (
           <Switch
             value={value}
             onValueChange={onValueChange}
@@ -59,7 +66,11 @@ export function SettingItem({
             thumbColor={value ? "#4CAF50" : "#f4f3f4"}
           />
         ) : (
-          <Ionicons name="chevron-forward" size={20} colorClassName="text-foreground" />
+          <Ionicons
+            name="chevron-forward"
+            size={20}
+            colorClassName="accent-foreground"
+          />
         )}
       </View>
     </Pressable>

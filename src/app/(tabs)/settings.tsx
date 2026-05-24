@@ -1,12 +1,19 @@
-import { useState } from "react";
-import { ScrollView, View } from "react-native";
-import { MyText, MyView } from "@/components/ui/defaults";
+import { CancelButton } from "#/src/components/settings/dialog-actions";
+import { SwitchLanguage } from "@/components/lang/switcher";
 import { SettingItem } from "@/components/settings/item";
 import { SettingsSection } from "@/components/settings/section";
+import { MyText, MyView } from "@/components/ui/defaults";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Ionicons as RawIconicons } from "@expo/vector-icons";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ScrollView, View } from "react-native";
 import { withUniwind } from "uniwind";
-import { router } from "expo-router";
 
 const Ionicons = withUniwind(RawIconicons);
 
@@ -44,7 +51,11 @@ export default function Settings() {
         <View className="px-4 mt-6 mb-8">
           <View className="flex-row items-center gap-3">
             <View className="w-12 h-12 rounded-2xl bg-primary/15 flex items-center justify-center">
-              <Ionicons name="settings" size={26} colorClassName="text-primary" />
+              <Ionicons
+                name="settings-outline"
+                size={26}
+                colorClassName="accent-accent"
+              />
             </View>
             <View className="flex-1">
               <MyText variant="title" className="text-foreground">
@@ -57,125 +68,74 @@ export default function Settings() {
           </View>
         </View>
 
-        {/* Display & Theme Section */}
-        <SettingsSection title="Display & Theme" icon="palette">
-          <SettingItem
-            icon="moon"
-            title="Dark Mode"
-            description="Enable dark theme for better night viewing"
-            value={settings.darkMode}
-            onValueChange={() => handleToggle("darkMode")}
-          />
-          <SettingItem
-            icon="contrast"
-            title="High Contrast"
-            description="Increase visual contrast for readability"
-            value={false}
-            onValueChange={() => {}}
-          />
-          <SettingItem
-            icon="text"
-            title="Text Size"
-            description="Adjust text size for better readability"
-            onPress={() => {}}
-          />
-        </SettingsSection>
-
-        {/* Notifications & Sound Section */}
-        <SettingsSection title="Notifications & Sound" icon="notifications-sharp">
-          <SettingItem
-            icon="notifications"
-            title="Enable Notifications"
-            description="Receive updates and meal reminders"
-            value={settings.notifications}
-            onValueChange={() => handleToggle("notifications")}
-          />
-          <SettingItem
-            icon="volume-high"
-            title="Sound & Vibration"
-            description="Alert sounds and haptic feedback"
-            value={settings.sound}
-            onValueChange={() => handleToggle("sound")}
-          />
-          <SettingItem
-            icon="time"
-            title="Daily Reminder"
-            description="Set a daily reminder to log meals"
-            onPress={() => {}}
-          />
-        </SettingsSection>
-
-        {/* Privacy & Security Section */}
-        <SettingsSection title="Privacy & Security" icon="shield-checkmark-sharp">
-          <SettingItem
-            icon="lock-closed"
-            title="Private Mode"
-            description="Hide sensitive meal information"
-            value={settings.privateMode}
-            onValueChange={() => handleToggle("privateMode")}
-          />
-          <SettingItem
-            icon="finger-print"
-            title="Biometric Login"
-            description="Use fingerprint or face recognition"
-            value={settings.biometric}
-            onValueChange={() => handleToggle("biometric")}
-          />
-          <SettingItem
-            icon="document-text"
-            title="Privacy Policy"
-            description="Read our privacy policy"
-            onPress={() => {}}
-          />
-        </SettingsSection>
-
-        {/* Data & Storage Section */}
-        <SettingsSection title="Data & Storage" icon="cloud-sharp">
-          <SettingItem
-            icon="cloud"
-            title="Cloud Sync"
-            description="Automatically sync your data"
-            value={settings.dataSync}
-            onValueChange={() => handleToggle("dataSync")}
-          />
-          <SettingItem
-            icon="download"
-            title="Backup & Restore"
-            description="Manage your data backups"
-            onPress={() => {}}
-          />
-          <SettingItem
-            icon="trash"
-            title="Clear Cache"
-            description="Free up storage space"
-            onPress={() => {}}
-          />
-        </SettingsSection>
-
         {/* General Section */}
-        <SettingsSection title="General" icon="settings-sharp">
+        <SettingsSection title="General" icon="person-outline">
+          <Dialog
+            renderTrigger={({ openDialog }) => (
+              <SettingItem
+                icon="language-outline"
+                title="Language"
+                description="Select your preferred language"
+                onPress={openDialog}
+              />
+            )}
+          >
+            <DialogTitle>{t("language.cta.switch")}</DialogTitle>
+            <DialogContent>
+              <View className="py-5">
+                <SwitchLanguage />
+              </View>
+            </DialogContent>
+            <DialogActions>
+              <View className="flex-row items-center justify-between w-full">
+                <CancelButton className="p-2" />
+                <CancelButton label="Confirm" className="p-2" />
+              </View>
+            </DialogActions>
+          </Dialog>
           <SettingItem
-            icon="language"
-            title="Language"
-            description="English"
-            onPress={() => {}}
-          />
-          <SettingItem
-            icon="help-circle"
+            icon="help-circle-outline"
             title="Help & Support"
             description="Get help or report issues"
             onPress={() => {}}
           />
           <SettingItem
-            icon="document"
+            icon="document-outline"
             title="Terms of Service"
             description="View our terms and conditions"
             onPress={() => {}}
           />
         </SettingsSection>
 
+        {/* Privacy & Security Section */}
+        <SettingsSection
+          title="Privacy & Security"
+          icon="shield-checkmark-outline"
+        >
+          <SettingItem
+            icon="lock-closed-outline"
+            title="Private Mode"
+            description="Hide sensitive meal information"
+            value={settings.privateMode}
+            onValueChange={() => handleToggle("privateMode")}
+          />
+          <SettingItem
+            icon="finger-print-outline"
+            title="Biometric Login"
+            description="Use fingerprint or face recognition"
+            value={settings.biometric}
+            onValueChange={() => handleToggle("biometric")}
+          />
+          <SettingItem
+            icon="document-text-outline"
+            title="Privacy Policy"
+            description="Read our privacy policy"
+            onPress={() => {}}
+          />
+        </SettingsSection>
+
         {/* About Section */}
-        <SettingsSection title="About" icon="information-circle-sharp">
+        <SettingsSection title="About" icon="information-circle-outline">
           <View className="px-4 py-4 rounded-xl bg-card border border-border gap-3">
             <View>
               <MyText className="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-1">
@@ -192,37 +152,21 @@ export default function Settings() {
             </View>
           </View>
           <SettingItem
-            icon="chatbubble"
+            icon="chatbubble-outline"
             title="Send Feedback"
             description="Help us improve the app"
             onPress={() => {}}
           />
           <SettingItem
-            icon="help-circle"
+            icon="help-circle-outline"
             title="About Us"
             description="Learn more about our app"
             onPress={() => {}}
           />
         </SettingsSection>
 
-        {/* Quick Access Section */}
-        <SettingsSection title="Quick Access" icon="history">
-          <SettingItem
-            icon="time"
-            title="Meal History"
-            description="View your past meals and statistics"
-            onPress={() => router.push("/history")}
-          />
-          <SettingItem
-            icon="star"
-            title="Favorites"
-            description="Manage your favorite meals"
-            onPress={() => {}}
-          />
-        </SettingsSection>
-
         {/* Footer Padding */}
-        <View className="h-8" />
+        <View className="h-14" />
       </ScrollView>
     </MyView>
   );

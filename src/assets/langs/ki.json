@@ -1,6 +1,10 @@
 {
   "home": {
     "title": "Uyumusi",
+    "greet": {
+      "main": "Murakaza neza",
+      "sub": "kuri Menura"
+    },
     "days": {
       "sunday": "Kuwindwi",
       "monday": "Kuwambere",
@@ -14,14 +18,14 @@
     "no-meal-selected": "Ntabifungurwa urahitamwo uyumusi",
     "tabs": {
       "manual": "Kwihitiramwo",
-      "random": "Application Ihitemwo"
+      "random": "Tomboresha"
     }
   },
   "dishes": {
     "main": "🥗 Ivyibanze",
     "secondary": "🫘 Ibisahiriza",
     "tertiary": "🥬 Imboga",
-    "sauce": "🥩🍗 Ivyisosi"
+    "sauce": "🥩 Isosi"
   },
   "cta": {
     "create-meal": "Cagura ibifungurwa",
@@ -32,5 +36,16 @@
   },
   "settings": {
     "title": "Settings"
+  },
+  "toasts": {
+    "createMeal": {
+      "success": "Ibifungurwa vyacaguwe",
+      "error": "Habaye ikosa mu cagura ibifungurwa"
+    }
+  },
+  "language": {
+    "cta": {
+      "switch": "Hitamwo Ururimi"
+    }
   }
 }

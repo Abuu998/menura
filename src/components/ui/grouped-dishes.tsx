@@ -1,12 +1,12 @@
 import { Dish, dishesType } from "@/lib/db/schema";
-import { View, Text } from "react-native";
-import { MyText } from "./defaults";
-import { DishCard } from "./dish";
 import { cn } from "@/lib/utils";
-import { DishWithCheck } from "./dish-checkbox";
+import { useTranslation } from "react-i18next";
+import { View } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { MealSelection } from "../tabs";
-import { useTranslation } from "react-i18next";
+import { MyText } from "./defaults";
+import { DishCard } from "./dish";
+import { DishWithCheck } from "./dish-checkbox";
 
 type GroupedDishesProps = {
   dishes: Dish[];
@@ -37,7 +37,7 @@ export function GroupedDishes({
           ) : (
             <RadioButton.Group
               key={dish.id}
-              value={selectedDishes[dish.type]}
+              value={selectedDishes[dish.type] ?? ""}
               onValueChange={(value) => selectDishes(dish.type, value)}
             >
               <DishWithCheck key={dish.id} dish={dish} />
@@ -46,14 +46,14 @@ export function GroupedDishes({
         )}
     </>
   ) : (
-    <View className="flex-row justify-between flex-wrap divide-x divide-primary">
+    <View className="flex-row justify-between flex-wrap">
       {dishesType.map((type) => {
         return (
           dishes.filter((dish) => dish.type === type).length > 0 && (
-            <View key={type} className="space-y-2 w-1/2 mb-2">
+            <View key={type} className="gap-y-1 w-1/2 mb-5">
               <MyText
                 variant="title"
-                className="text-muted-foreground border-b border-b-border"
+                className="text-muted-foreground capitalize"
               >
                 {t(`dishes.${type}`)}
               </MyText>
@@ -65,7 +65,7 @@ export function GroupedDishes({
                   ) : (
                     <RadioButton.Group
                       key={dish.id}
-                      value={selectedDishes[dish.type]}
+                      value={selectedDishes[dish.type] ?? ""}
                       onValueChange={(value) => selectDishes(dish.type, value)}
                     >
                       <DishWithCheck key={dish.id} dish={dish} />
@@ -79,5 +79,5 @@ export function GroupedDishes({
     </View>
   );
 
-  return <View className={cn("space-y-2", className)}>{render}</View>;
+  return <View className={cn("gap-2", className)}>{render}</View>;
 }
