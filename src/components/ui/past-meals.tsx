@@ -22,11 +22,7 @@ export function PastMeals() {
       ItemSeparatorComponent={() => <View className="h-4" />}
       showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
-        <MealCard
-          meal={item}
-          withDate
-          className="bg-secondary p-4 rounded-lg"
-        />
+        <MealCard meal={item} withDate className="p-4 rounded-lg" />
       )}
       ListFooterComponent={() => <View className="h-20" />}
       keyExtractor={(item) => item.id}

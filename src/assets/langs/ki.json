@@ -35,7 +35,24 @@
     "title": "🍝 Ivyokurya vyarenganye"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Igenamigambi",
+    "description": "Hindura uburyo ushaka Menura ikore.",
+    "sections": {
+      "general": {
+        "title": "Rusangi",
+        "options": {
+          "language": {
+            "label": "Ururimi",
+            "description": "Hitamwo ururimi wipfuza."
+          }
+        }
+      },
+      "about": {
+        "title": "Ivyerekeye Menura",
+        "appVersion": "Version ya Menura",
+        "buildNumber": "Numero y'ikubitiro"
+      }
+    }
   },
   "toasts": {
     "createMeal": {

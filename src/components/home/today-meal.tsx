@@ -1,7 +1,8 @@
 import { useTodaysMeal } from "@/hooks/meals";
+import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
-import { Card, CardContent, CardTitle } from "../ui/card";
+import { MyText } from "../ui/defaults";
 import { Empty } from "../ui/empty";
 import { MealCard } from "../ui/meal";
 
@@ -14,19 +15,18 @@ export function TodaysMeal({ className }: TodaysMealsProps) {
   const todaysMeal = useTodaysMeal();
 
   return (
-    <Card className="mt-8 p-4">
-      <CardTitle
-        title={`🍽️ ${t("home.title")}`}
-        titleClassName="font-semibold tracking-wider uppercase"
-      />
-
-      <CardContent className="mt-8">
+    <View className={cn("mt-8 bg-card rounded-xl p-5", className)}>
+      <MyText
+        variant="title"
+        className="font-semibold tracking-wider uppercase"
+      >{`🍽️ ${t("home.title")}`}</MyText>
+      <View className="mt-6">
         {todaysMeal ? (
-          <MealCard meal={todaysMeal} withDate />
+          <MealCard meal={todaysMeal} contentClassName="p-4 px-5" />
         ) : (
           <Empty message={t("home.no-meal-selected")} />
         )}
-      </CardContent>
-    </Card>
+      </View>
+    </View>
   );
 }

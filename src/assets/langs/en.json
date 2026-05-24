@@ -35,7 +35,24 @@
     "title": "🍝 Past Meals"
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "description": "Customize your app experience.",
+    "sections": {
+      "general": {
+        "title": "General",
+        "options": {
+          "language": {
+            "label": "Language",
+            "description": "Select your preferred language."
+          }
+        }
+      },
+      "about": {
+        "title": "About",
+        "appVersion": "App Version",
+        "buildNumber": "Build Number"
+      }
+    }
   },
   "toasts": {
     "createMeal": {

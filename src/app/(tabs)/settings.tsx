@@ -63,20 +63,25 @@ export default function Settings() {
                 {t("settings.title")}
               </MyText>
               <MyText className="text-muted-foreground text-sm mt-1">
-                Customize your app experience
+                {t("settings.description")}
               </MyText>
             </View>
           </View>
         </View>
 
         {/* General Section */}
-        <SettingsSection title="General" icon="person-outline">
+        <SettingsSection
+          title={t("settings.sections.general.title")}
+          icon="person-outline"
+        >
           <Dialog
             renderTrigger={({ openDialog }) => (
               <SettingItem
                 icon="language-outline"
-                title="Language"
-                description="Select your preferred language"
+                title={t("settings.sections.general.options.language.label")}
+                description={t(
+                  "settings.sections.general.options.language.description",
+                )}
                 onPress={openDialog}
               />
             )}
@@ -136,11 +141,14 @@ export default function Settings() {
         </SettingsSection> */}
 
         {/* About Section */}
-        <SettingsSection title="About" icon="information-circle-outline">
+        <SettingsSection
+          title={t("settings.sections.about.title")}
+          icon="information-circle-outline"
+        >
           <View className="px-4 py-4 rounded-xl bg-card border border-border gap-3">
             <View>
               <MyText className="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-1">
-                App Version
+                {t("settings.sections.about.appVersion")}
               </MyText>
               <MyText className="text-foreground font-medium">
                 {getAppVersion()}
@@ -149,7 +157,7 @@ export default function Settings() {
             <View className="border-t border-border pt-3" />
             <View>
               <MyText className="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-1">
-                Build Number
+                {t("settings.sections.about.buildNumber")}
               </MyText>
               <MyText className="text-foreground font-medium">
                 {getAppBuild()}
