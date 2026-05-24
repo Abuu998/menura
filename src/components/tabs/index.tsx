@@ -40,13 +40,6 @@ export function CreateMealTabs() {
     }));
   };
 
-  const parsed = createMealSchema.safeParse(selectedDishes);
-
-  if (!parsed.success || !parsed.data) {
-    toastAndVibrate({ type: "error", message: "Please select valid Dishes" });
-    return;
-  }
-
   const randomizeMeal = () => {
     const mains = dishes.filter((dish) => dish.type === "main");
     const secondaries = dishes.filter((dish) => dish.type === "secondary");
@@ -82,9 +75,19 @@ export function CreateMealTabs() {
         className="bg-card/80 border border-accent/60 border-t-0 p-5 rounded-b-xl"
         selectDishes={selectDishesForMeal}
         selectedDishes={selectedDishes}
-        createMeal={() =>
-          createMeal(parsed.data, t, () => setSelectedDishes(initialState))
-        }
+        createMeal={async () => {
+          const parsed = createMealSchema.safeParse(selectedDishes);
+
+          if (!parsed.success || !parsed.data) {
+            toastAndVibrate({
+              type: "error",
+              message: t("toasts.createMeal.invalid"),
+            });
+            return;
+          }
+
+          createMeal(parsed.data, t, () => setSelectedDishes(initialState));
+        }}
         randomizeMeal={randomizeMeal}
       />
     </View>

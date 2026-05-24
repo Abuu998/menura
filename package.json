@@ -28,6 +28,7 @@
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.1",
     "expo": "~55.0.26",
+    "expo-application": "~55.0.15",
     "expo-checkbox": "~55.0.4",
     "expo-constants": "~55.0.16",
     "expo-dev-client": "~55.0.35",

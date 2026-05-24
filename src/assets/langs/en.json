@@ -40,7 +40,8 @@
   "toasts": {
     "createMeal": {
       "success": "Meal created successfully",
-      "error": "An error occurred while creating the meal"
+      "error": "An error occurred while creating the meal",
+      "invalid": "Please select valid Meal options"
     }
   },
   "language": {

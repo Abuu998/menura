@@ -40,7 +40,8 @@
   "toasts": {
     "createMeal": {
       "success": "Ibifungurwa vyacaguwe",
-      "error": "Habaye ikosa mu cagura ibifungurwa"
+      "error": "Habaye ikosa mu cagura ibifungurwa",
+      "invalid": "Hitamwo ibifungurwa vyemewe"
     }
   },
   "language": {

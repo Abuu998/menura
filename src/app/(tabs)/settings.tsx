@@ -9,6 +9,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getAppBuild, getAppVersion } from "@/lib/utils";
 import { Ionicons as RawIconicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -93,7 +94,7 @@ export default function Settings() {
               </View>
             </DialogActions>
           </Dialog>
-          <SettingItem
+          {/* <SettingItem
             icon="help-circle-outline"
             title="Help & Support"
             description="Get help or report issues"
@@ -104,11 +105,11 @@ export default function Settings() {
             title="Terms of Service"
             description="View our terms and conditions"
             onPress={() => {}}
-          />
+          /> */}
         </SettingsSection>
 
         {/* Privacy & Security Section */}
-        <SettingsSection
+        {/* <SettingsSection
           title="Privacy & Security"
           icon="shield-checkmark-outline"
         >
@@ -132,7 +133,7 @@ export default function Settings() {
             description="Read our privacy policy"
             onPress={() => {}}
           />
-        </SettingsSection>
+        </SettingsSection> */}
 
         {/* About Section */}
         <SettingsSection title="About" icon="information-circle-outline">
@@ -141,28 +142,20 @@ export default function Settings() {
               <MyText className="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-1">
                 App Version
               </MyText>
-              <MyText className="text-foreground font-medium">v1.0.0</MyText>
+              <MyText className="text-foreground font-medium">
+                {getAppVersion()}
+              </MyText>
             </View>
             <View className="border-t border-border pt-3" />
             <View>
               <MyText className="text-muted-foreground text-xs font-semibold uppercase tracking-wide mb-1">
                 Build Number
               </MyText>
-              <MyText className="text-foreground font-medium">2024.001</MyText>
+              <MyText className="text-foreground font-medium">
+                {getAppBuild()}
+              </MyText>
             </View>
           </View>
-          <SettingItem
-            icon="chatbubble-outline"
-            title="Send Feedback"
-            description="Help us improve the app"
-            onPress={() => {}}
-          />
-          <SettingItem
-            icon="help-circle-outline"
-            title="About Us"
-            description="Learn more about our app"
-            onPress={() => {}}
-          />
         </SettingsSection>
 
         {/* Footer Padding */}

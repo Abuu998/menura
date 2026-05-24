@@ -1,4 +1,5 @@
 import { ClassValue, clsx } from "clsx";
+import * as Application from "expo-application";
 import * as Haptics from "expo-haptics";
 import { twMerge } from "tailwind-merge";
 import { Toast } from "toastify-react-native";
@@ -27,4 +28,12 @@ export function toastAndVibrate({
     onShow: () =>
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error),
   });
+}
+
+export function getAppVersion() {
+  return Application.nativeApplicationVersion || "Unknown";
+}
+
+export function getAppBuild() {
+  return Application.nativeBuildVersion || "Unknown";
 }
