@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "abe63124-53b3-43e7-aa2c-9d77e3f5f3a8",
+  "id": "0d38d5e2-23b5-423c-8c29-37838a4ac5b9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "mains": {
-      "name": "mains",
+    "dishes": {
+      "name": "dishes",
       "columns": {
         "id": {
           "name": "id",
@@ -20,11 +20,18 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {
-        "mains_name_unique": {
-          "name": "mains_name_unique",
+        "dishes_name_unique": {
+          "name": "dishes_name_unique",
           "columns": [
             "name"
           ],
@@ -33,6 +40,65 @@
       },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "dishes_to_meals": {
+      "name": "dishes_to_meals",
+      "columns": {
+        "dish_id": {
+          "name": "dish_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "meal_id": {
+          "name": "meal_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "dishes_to_meals_dish_id_dishes_id_fk": {
+          "name": "dishes_to_meals_dish_id_dishes_id_fk",
+          "tableFrom": "dishes_to_meals",
+          "tableTo": "dishes",
+          "columnsFrom": [
+            "dish_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "dishes_to_meals_meal_id_meals_id_fk": {
+          "name": "dishes_to_meals_meal_id_meals_id_fk",
+          "tableFrom": "dishes_to_meals",
+          "tableTo": "meals",
+          "columnsFrom": [
+            "meal_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "dishes_to_meals_dish_id_meal_id_pk": {
+          "columns": [
+            "dish_id",
+            "meal_id"
+          ],
+          "name": "dishes_to_meals_dish_id_meal_id_pk"
+        }
+      },
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
@@ -46,193 +112,15 @@
           "notNull": true,
           "autoincrement": false
         },
-        "created": {
-          "name": "created",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false,
-          "default": "(CURRENT_TIMESTAMP)"
-        },
-        "main_id": {
-          "name": "main_id",
+        "date": {
+          "name": "date",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": false
-        },
-        "secondary_id": {
-          "name": "secondary_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "tertiary_id": {
-          "name": "tertiary_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "sauce_id": {
-          "name": "sauce_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
           "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "meals_main_id_mains_id_fk": {
-          "name": "meals_main_id_mains_id_fk",
-          "tableFrom": "meals",
-          "tableTo": "mains",
-          "columnsFrom": [
-            "main_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "meals_secondary_id_secondaries_id_fk": {
-          "name": "meals_secondary_id_secondaries_id_fk",
-          "tableFrom": "meals",
-          "tableTo": "secondaries",
-          "columnsFrom": [
-            "secondary_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "meals_tertiary_id_tertiaries_id_fk": {
-          "name": "meals_tertiary_id_tertiaries_id_fk",
-          "tableFrom": "meals",
-          "tableTo": "tertiaries",
-          "columnsFrom": [
-            "tertiary_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "meals_sauce_id_sauces_id_fk": {
-          "name": "meals_sauce_id_sauces_id_fk",
-          "tableFrom": "meals",
-          "tableTo": "sauces",
-          "columnsFrom": [
-            "sauce_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
-    "sauces": {
-      "name": "sauces",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "sauces_name_unique": {
-          "name": "sauces_name_unique",
-          "columns": [
-            "name"
-          ],
-          "isUnique": true
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
-    "secondaries": {
-      "name": "secondaries",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "secondaries_name_unique": {
-          "name": "secondaries_name_unique",
-          "columns": [
-            "name"
-          ],
-          "isUnique": true
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
-    "tertiaries": {
-      "name": "tertiaries",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "tertiaries_name_unique": {
-          "name": "tertiaries_name_unique",
-          "columns": [
-            "name"
-          ],
-          "isUnique": true
-        }
-      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},

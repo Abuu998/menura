@@ -1,0 +1,51 @@
+{
+  "home": {
+    "title": "Today",
+    "greet": {
+      "main": "Welcome back",
+      "sub": "to Menura"
+    },
+    "days": {
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "today-meal": "Today's Meal",
+    "no-meal-selected": "No Meal selected for today",
+    "tabs": {
+      "manual": "Manually",
+      "random": "Randomize"
+    }
+  },
+  "dishes": {
+    "main": "🥗 Main",
+    "secondary": "🫘 Helpers",
+    "tertiary": "🥬 Vegetables",
+    "sauce": "🥩 Sauces"
+  },
+  "cta": {
+    "create-meal": "Create Meal",
+    "randomize-meal": "Randomize Meal"
+  },
+  "history": {
+    "title": "🍝 Past Meals"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "toasts": {
+    "createMeal": {
+      "success": "Meal created successfully",
+      "error": "An error occurred while creating the meal"
+    }
+  },
+  "language": {
+    "cta": {
+      "switch": "Select Language"
+    }
+  }
+}

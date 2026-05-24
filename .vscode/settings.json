@@ -2,7 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit",
-    "source.sortMembers": "explicit",
+    "source.sortMembers": "explicit"
   },
   "lsp": {
     "tailwindcss-language-server": {
@@ -35,10 +35,14 @@
           "backdropColorClassName",
           "backgroundColorClassName",
           "ListFooterComponentClassName",
-          "ListHeaderComponentClassName",
+          "ListHeaderComponentClassName"
         ],
-        "classFunctions": ["useResolveClassNames"],
-      },
-    },
+        "classFunctions": ["useResolveClassNames"]
+      }
+    }
   },
+  "editor.guides.bracketPairs": true,
+  "explorer.expandSingleFolderWorkspaces": true,
+  "explorer.fileNesting.enabled": false,
+  "explorer.fileNesting.expand": true
 }

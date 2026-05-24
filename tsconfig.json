@@ -3,17 +3,17 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "strict": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-    },
+      "#/*": ["./*"],
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "types/**/*.ts",
+    "src/types/**/*.ts",
     "uniwind-types.d.ts",
-    "expo-env.d.ts",
-  ],
+    "expo-env.d.ts"
+  ]
 }

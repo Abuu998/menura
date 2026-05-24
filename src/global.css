@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@theme {
+  --font-raleway: "Raleway Regular";
+  --font-raleway-semi: "Raleway SemiBold";
+  --font-serif: var(--font-serif);
+
+  /* Colors */
+  --color-background: hsl(232 23% 34%); /* 232 23% 34% */
+  --color-foreground: hsl(0 0% 95%); /* 0 0% 95% */
+  --color-card: hsl(231 22% 45%); /* 231 22% 45% */
+  --color-card-foreground: hsl(0 0% 95%); /* 0 0% 95% */
+  --color-primary: hsl(231 28% 25%); /* 231 28% 25% */
+  --color-primary-foreground: hsl(0 0% 95%); /* 0 0% 95% */
+  --color-secondary: hsl(232 09% 34%); /* 231 22% 51% */
+  --color-secondary-foreground: hsl(232 10% 70%);
+  --color-muted: hsl(232 09% 34%); /* 232 09% 34% */
+  --color-muted-foreground: hsl(232 10% 70%); /* 232 10% 70% */
+  --color-accent: hsl(26 91% 73%); /* 26 91% 73% */
+  --color-accent-foreground: hsl(231 28% 25%); /* 0 0% 95% */
+  --color-destructive: oklch(0.58 0.22 27.29);
+  --color-border: hsl(230 20% 35%); /* 230 20% 35% */
+  --color-input: oklch(0.9 0.01 266.73);
+  --color-ring: hsl(231 28% 25%);
+
+  /* Others */
+  --radius: 0.375rem;
+  --shadow-2xs: 0 1px 3px 0px oklch(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 3px 0px oklch(0 0 0 / 0.05);
+  --shadow-sm:
+    0 1px 3px 0px oklch(0 0 0 / 0.1), 0 1px 2px -1px oklch(0 0 0 / 0.1);
+  --shadow: 0 1px 3px 0px oklch(0 0 0 / 0.1), 0 1px 2px -1px oklch(0 0 0 / 0.1);
+  --shadow-md:
+    0 1px 3px 0px oklch(0 0 0 / 0.1), 0 2px 4px -1px oklch(0 0 0 / 0.1);
+  --shadow-lg:
+    0 1px 3px 0px oklch(0 0 0 / 0.1), 0 4px 6px -1px oklch(0 0 0 / 0.1);
+  --shadow-xl:
+    0 1px 3px 0px oklch(0 0 0 / 0.1), 0 8px 10px -1px oklch(0 0 0 / 0.1);
+  --shadow-2xl: 0 1px 3px 0px oklch(0 0 0 / 0.25);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+}
